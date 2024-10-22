@@ -42,7 +42,6 @@ function MapPage() {
         (d) => d.County
       );
 
-      
       d3.json('/wa_counties.json').then((geoData) => {
         const projection = d3.geoMercator().fitSize([width, height], geoData);
         const path = d3.geoPath().projection(projection);
@@ -94,7 +93,6 @@ function MapPage() {
     }).catch((error) => {
       console.error('Erreur lors du chargement des données CSV :', error);
     });
-    
   }, []);
 
   return (
@@ -104,4 +102,5 @@ function MapPage() {
     </section>
   );
 }
+
 export default MapPage;

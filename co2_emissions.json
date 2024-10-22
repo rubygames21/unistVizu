@@ -1,6 +1,0 @@
-[
-    { "type": "EV", "emissions": 0 },
-    { "type": "HEV", "emissions": 80 },
-    { "type": "ICE", "emissions": 250 }
-  ]
-  
