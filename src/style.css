@@ -11,7 +11,7 @@ body {
 nav {
   background-color: #333;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly; /* Répartir les éléments uniformément */
   align-items: center;
   padding: 15px 0;
   position: sticky;
@@ -21,42 +21,49 @@ nav {
 
 nav ul {
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%; /* Prendre toute la largeur */
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 nav ul li {
-  margin: 0 15px;
+  flex: 1; /* Chaque élément prend une largeur égale */
+  text-align: center;
 }
 
 nav ul li a {
   text-decoration: none;
   color: white;
   font-size: 18px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce */
 }
 
+/* Effet hover esthétique */
 nav ul li a:hover {
   background-color: #575757;
+  transform: scale(1.1); /* Légère mise à l'échelle */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Ombre pour l'effet esthétique */
 }
 
 /* Conteneur de page */
 #content {
   padding: 20px;
   width: 100%;
-  min-height: calc(100vh - 60px); /* S'assure que le contenu prend tout l'écran en dessous de la nav */
+  min-height: calc(100vh - 60px); /* Prend tout l'écran sous la nav */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Pour les sections individuelles */
+/* Section de contenu */
 section {
   width: 80%; /* Prend 80% de la largeur du navigateur */
-  max-width: 1200px; /* Limite la largeur sur grand écran */
+  max-width: 1200px; /* Limite sur les grands écrans */
   margin: auto;
   background-color: white;
   padding: 20px;
@@ -64,18 +71,17 @@ section {
   border-radius: 8px;
 }
 
-/* Responsive: Si la largeur est trop petite */
+/* Responsive : petits écrans */
 @media (max-width: 768px) {
   nav ul {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Affiche les éléments verticalement */
   }
 
   nav ul li {
-    margin: 10px 0;
+    width: 100%; /* Chaque élément prend toute la largeur */
   }
 
   section {
-    width: 90%; /* Plus étroit sur petits écrans */
+    width: 90%; /* Réduction de la largeur sur petit écran */
   }
 }
