@@ -12,7 +12,7 @@ function App() {
     <Router>
       <nav>
         <ul>
-          <li><Link to="/MapPage">Map of Washington State</Link></li>
+          <li><Link to="/">Map of Washington State</Link></li>
           <li><Link to="/line-chart">Line Chart</Link></li>
           <li><Link to="/bar-chart">Bar Chart</Link></li>
           <li><Link to="/graph">Graph</Link></li>
@@ -20,7 +20,7 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path="/MapPage" element={<MapPage />} />
+        <Route path="/" element={<MapPage />} />
         <Route path="/line-chart" element={<LineChartPage />} />
         <Route path="/bar-chart" element={<BarChartPage />} />
         <Route path="/graph" element={<GraphPage />} />
