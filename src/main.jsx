@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import MapPage from './pages/MapPage';
-import LineChartPage from './pages/LineChartPage';
-import BarChartPage from './pages/BarChartPage';
-import GraphPage from './pages/GraphPage';
+import MapPage from './pages/Map/MapPage';
+import LineChartPage from './pages/LineChart/LineChartPage';
+import BarChartPage from './pages/BarChart/BarChartPage';
+import GraphPage from './pages/Graph/GraphPage';
 import './style.css';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <nav>
         <ul>
-          <li><Link to="/">Map of Washington State</Link></li>
+          <li><Link to="/MapPage">Map of Washington State</Link></li>
           <li><Link to="/line-chart">Line Chart</Link></li>
           <li><Link to="/bar-chart">Bar Chart</Link></li>
           <li><Link to="/graph">Graph</Link></li>
@@ -20,7 +20,7 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<MapPage />} />
+        <Route path="/MapPage" element={<MapPage />} />
         <Route path="/line-chart" element={<LineChartPage />} />
         <Route path="/bar-chart" element={<BarChartPage />} />
         <Route path="/graph" element={<GraphPage />} />
