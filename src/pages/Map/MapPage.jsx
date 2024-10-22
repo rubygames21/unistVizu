@@ -18,14 +18,7 @@ function MapPage() {
 
     // Créer un tooltip
     const tooltip = d3.select('body').append('div')
-      .attr('class', 'tooltip')
-      .style('position', 'absolute')
-      .style('visibility', 'hidden')
-      .style('background', '#fff')
-      .style('border', '1px solid #333')
-      .style('padding', '5px')
-      .style('border-radius', '5px')
-      .style('box-shadow', '0 0 10px rgba(0, 0, 0, 0.1)');
+      .attr('class', 'tooltip');
 
     // Charger le fichier GeoJSON
     d3.json('/wa_counties.json')
@@ -33,26 +26,27 @@ function MapPage() {
         const projection = d3.geoMercator().fitSize([width, height], data);
         const path = d3.geoPath().projection(projection);
 
+        // Ajouter les chemins de chaque comté
         svg.selectAll('path')
           .data(data.features)
           .enter()
           .append('path')
           .attr('d', path)
-          .attr('fill', '#cccccc')
-          .attr('stroke', '#333333')
-          .attr('stroke-width', 1)
           .on('mouseover', function (event, d) {
-            d3.select(this).attr('fill', '#ffa500'); // Changer la couleur au hover
-            tooltip.style('visibility', 'visible')
-              .text(d.properties.JURISDICT_NM); // Afficher le nom du comté
+            d3.select(this).attr('fill', '#16a085'); // Vert au survol
+            tooltip
+              .text(d.properties.JURISDICT_NM)
+              .style('visibility', 'visible')
+              .attr('class', 'tooltip visible'); // Rendre le tooltip visible
           })
           .on('mousemove', function (event) {
-            tooltip.style('top', (event.pageY - 10) + 'px')
-              .style('left', (event.pageX + 10) + 'px');
+            tooltip
+              .style('top', `${event.pageY - 30}px`)
+              .style('left', `${event.pageX + 10}px`);
           })
           .on('mouseout', function () {
-            d3.select(this).attr('fill', '#cccccc'); // Retour à la couleur initiale
-            tooltip.style('visibility', 'hidden');
+            d3.select(this).attr('fill', '#d1e8e2'); // Retour couleur initiale
+            tooltip.attr('class', 'tooltip'); // Masquer le tooltip
           });
       })
       .catch((error) => {
