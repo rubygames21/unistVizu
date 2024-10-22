@@ -1,0 +1,81 @@
+/* Style global */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Barre de navigation */
+nav {
+  background-color: #333;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #575757;
+}
+
+/* Conteneur de page */
+#content {
+  padding: 20px;
+  width: 100%;
+  min-height: calc(100vh - 60px); /* S'assure que le contenu prend tout l'écran en dessous de la nav */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Pour les sections individuelles */
+section {
+  width: 80%; /* Prend 80% de la largeur du navigateur */
+  max-width: 1200px; /* Limite la largeur sur grand écran */
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Responsive: Si la largeur est trop petite */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  section {
+    width: 90%; /* Plus étroit sur petits écrans */
+  }
+}
